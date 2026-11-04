@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-VIDEO = "autopilot/autopilot.mp4"
+VIDEO = "imgs/PracticaAutoPilot.mp4"
 ROI = np.array([[(520, 540), (1180, 540), (800, 285), (560, 285)]], dtype=np.int32)
 VENTANA = "Canny ROI"
 
