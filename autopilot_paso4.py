@@ -29,7 +29,7 @@ def detectar_segmentos(bordes):
     lineas = cv2.HoughLinesP(bordes, 1, np.pi / 180, 30, minLineLength=40, maxLineGap=60)
     if lineas is None:
         return []
-    return lineas.reshape(-1, 4).tolist()
+    return lineas.tolist()
 
 
 def filtrar_derecha(segmentos):
@@ -137,6 +137,16 @@ def dibujar(frame, segmentos, linea, detectada):
             (0, 0, 255),
             4
         )
+
+    cv2.putText(
+        capa,
+        f"Lineas detectadas: {len(segmentos)}",
+        (200, 150),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1.5,
+        (0, 0, 255),
+        4
+    )
 
     return cv2.addWeighted(frame, 0.4, capa, 0.6, 0)
 
